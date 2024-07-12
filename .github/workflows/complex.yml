@@ -1,21 +1,23 @@
 name: Complex
+
 on: push
-  jobs:
-    ubuntu:
-        run-ons: ubuntu-latest
-        steps:
-        - run: date
-      windows:
-        run-ons: windows-latest
-        steps:
-        - run: date
-      macos:
-        run-ons: macos-latest
-        steps:
-        - run: date
-      depends:
-        needs:[ubuntu, windows, macos]
-        run-ons: macos-latest
-        steps:
-        - run: date
+
+jobs:
+  ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+    - run: date
+  windows:
+    runs-on: windows-latest
+    steps:
+    - run: date
+  macos:
+    runs-on: macos-latest
+    steps:
+    - run: date
+  depends:
+    needs: [ubuntu, windows, macos]
+    runs-on: macos-latest
+    steps:
+    - run: date
           
